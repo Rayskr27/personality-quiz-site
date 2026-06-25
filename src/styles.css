@@ -1,0 +1,483 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&display=swap");
+
+:root {
+  color: #262322;
+  background: #f2efea;
+  font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button {
+  font: inherit;
+}
+
+.appShell {
+  min-height: 100vh;
+  padding: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(92, 141, 161, 0.18), transparent 34%),
+    linear-gradient(135deg, #f5f1ec 0%, #ece8e2 45%, #f7f7f4 100%);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(460px, 1.22fr);
+  gap: 22px;
+  max-width: 1220px;
+  min-height: calc(100vh - 56px);
+  margin: 0 auto;
+}
+
+.introPanel,
+.quizPanel {
+  border: 1px solid rgba(54, 48, 42, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 24px 72px rgba(70, 61, 52, 0.15);
+  backdrop-filter: blur(18px);
+}
+
+.introPanel {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.brandMark {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 28px;
+  place-items: center;
+  border-radius: 8px;
+  color: #ffffff;
+  background: #335f78;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #9b6a3a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 9ch;
+  margin-bottom: 18px;
+  color: #241f1f;
+  font-size: clamp(2.35rem, 5vw, 4.55rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.introText,
+.ageGate p {
+  color: #625a55;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.noticeBox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 22px 0;
+  padding: 14px;
+  border: 1px solid rgba(51, 95, 120, 0.18);
+  border-radius: 8px;
+  color: #314d5b;
+  background: #edf6f8;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.noticeBox svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.axisList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 26px;
+}
+
+.axisList span,
+.strengthGrid span {
+  padding: 8px 10px;
+  border: 1px solid rgba(54, 48, 42, 0.1);
+  border-radius: 8px;
+  color: #3f3834;
+  background: #fbfaf8;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.quizPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px, 4vw, 46px);
+}
+
+.ageGate {
+  max-width: 640px;
+}
+
+.ageGate h2,
+.questionBlock h2,
+.resultHeader h2 {
+  color: #241f1f;
+  font-size: clamp(1.65rem, 3vw, 2.85rem);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.quizTopline,
+.quizActions,
+.resultHeader,
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.quizTopline {
+  color: #68605b;
+  font-size: 0.92rem;
+}
+
+.quizTopline strong {
+  color: #241f1f;
+}
+
+.progressTrack {
+  overflow: hidden;
+  width: 100%;
+  height: 8px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: #e2ddd7;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #416bbb, #d9a15f);
+  transition: width 220ms ease;
+}
+
+.questionBlock {
+  margin: clamp(34px, 7vw, 68px) 0 28px;
+}
+
+.questionIndex {
+  margin-bottom: 10px;
+  color: #9b6a3a;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.optionGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.optionButton {
+  min-height: 86px;
+  padding: 20px 22px;
+  border: 1px solid rgba(54, 48, 42, 0.13);
+  border-radius: 8px;
+  color: #2b2826;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.optionButton:hover,
+.optionButton:focus-visible {
+  border-color: #416bbb;
+  box-shadow: 0 12px 28px rgba(65, 107, 187, 0.16);
+  outline: none;
+}
+
+.optionButton.selected {
+  border-color: #416bbb;
+  background: #edf3ff;
+}
+
+.optionButton span {
+  display: block;
+  font-size: 1.03rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.quizActions {
+  margin-top: 28px;
+}
+
+.iconButton,
+.textButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.iconButton {
+  width: 44px;
+  color: #2b2826;
+  background: #ebe5dc;
+}
+
+.textButton {
+  padding: 0 18px;
+  color: #ffffff;
+  background: #2b2826;
+  font-weight: 800;
+}
+
+.iconButton:hover,
+.textButton:hover {
+  opacity: 0.86;
+}
+
+.iconButton:focus-visible,
+.textButton:focus-visible {
+  outline: 3px solid rgba(65, 107, 187, 0.32);
+  outline-offset: 3px;
+}
+
+.iconButton:disabled,
+.textButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.resultView {
+  width: 100%;
+}
+
+.resultHeader {
+  align-items: flex-start;
+}
+
+.radarWrap {
+  display: grid;
+  width: min(100%, 620px);
+  margin: 12px auto 4px;
+  place-items: center;
+}
+
+.radarChart {
+  display: block;
+  width: 100%;
+  max-height: 66vh;
+}
+
+.radarRing {
+  fill: none;
+  stroke: rgba(67, 74, 84, 0.14);
+  stroke-dasharray: 8 8;
+  stroke-width: 1.2;
+}
+
+.radarAxis {
+  stroke: rgba(67, 74, 84, 0.13);
+  stroke-dasharray: 8 8;
+  stroke-width: 1.2;
+}
+
+.radarLabel {
+  fill: #55504c;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.standardShape {
+  fill: rgba(217, 161, 95, 0.13);
+  stroke: rgba(217, 161, 95, 0.88);
+  stroke-width: 2;
+}
+
+.scoreShape {
+  fill: rgba(65, 107, 187, 0.13);
+}
+
+.scoreLine {
+  fill: none;
+  stroke: #416bbb;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.scorePoint {
+  fill: #ffffff;
+  stroke: #416bbb;
+  stroke-width: 3;
+}
+
+.centerPoint {
+  fill: #d9a15f;
+  stroke: #fff6e7;
+  stroke-width: 5;
+}
+
+.legend {
+  justify-content: center;
+  margin: 6px 0 24px;
+  color: #4f4945;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+}
+
+.scoreDot {
+  background: #416bbb;
+}
+
+.standardDot {
+  background: #d9a15f;
+}
+
+.summaryPanel {
+  padding: 18px;
+  border: 1px solid rgba(54, 48, 42, 0.1);
+  border-radius: 8px;
+  background: #fbfaf8;
+}
+
+.summaryPanel > strong {
+  color: #2b2826;
+}
+
+.topScoreGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.topScoreCard {
+  min-width: 0;
+  padding: 14px;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.topScoreCard span {
+  color: #68605b;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.topScoreCard strong {
+  display: block;
+  margin: 6px 0;
+  color: #416bbb;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.topScoreCard p {
+  margin: 0;
+  color: #625a55;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 920px) {
+  .appShell {
+    padding: 16px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  h1 {
+    max-width: 13ch;
+  }
+
+  .axisList {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .introPanel,
+  .quizPanel {
+    padding: 22px;
+  }
+
+  .radarWrap {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .radarLabel {
+    font-size: 14px;
+  }
+
+  .topScoreGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+  }
+
+  .optionButton {
+    min-height: 76px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
